@@ -94,7 +94,21 @@ Promises:
 */
 void UserAppRun(void)
 {
-
+    //code to toggle RA0
+    //PORTA= PORTA ^ 0x1; from activity 2 
+    if(PORTA==0xBF)
+    {
+        PORTA= PORTA & 0x80;
+    }
+    else{
+        PORTA= PORTA + 0x01;
+    }
+    u32 u32counter= 0;
+    //while(u32counter<327680) ~2 seconds
+    while(u32counter<32768)
+    {
+        u32counter++;
+    }
 
 } /* end UserAppRun */
 
