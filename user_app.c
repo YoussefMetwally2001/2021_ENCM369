@@ -93,19 +93,17 @@ Promises:
 
 */
 void UserAppRun(void)
-{
-    //code to toggle RA0
-    //PORTA= PORTA ^ 0x1; from activity 2 
-    if(PORTA==0xBF)
+{ 
+	//6 bit binary counter implementation with RA7=1
+    if(PORTA==0xBF) //check if 1011 1111 is reached 
     {
-        PORTA= PORTA & 0x80;
+        PORTA= PORTA & 0x80; //reset to 1000 0000 
     }
     else{
-        PORTA= PORTA + 0x01;
+        PORTA= PORTA + 0x01; //increment our register value by 1
     }
-    u32 u32counter= 0;
-    //while(u32counter<327680) ~2 seconds
-    while(u32counter<32768)
+    u32 u32counter= 0;       //32bit counter for delay
+    while(u32counter<327680) //~2 seconds
     {
         u32counter++;
     }
