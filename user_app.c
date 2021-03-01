@@ -93,8 +93,22 @@ Promises:
 
 */
 void UserAppRun(void)
-{
-
+{ 
+    if(PORTB==0x32){
+        
+        if(PORTA==0xBF) //check if 1011 1111 is reached 
+        {
+            PORTA= PORTA & 0x80; //reset to 1000 0000 
+        }
+        else{
+            PORTA= PORTA + 0x01; //increment our register value by 1
+        }
+        u32 u32counter= 0;       //32bit counter for delay
+        while(u32counter<327680) //~2 seconds
+        {
+            u32counter++;
+        }
+    }
 
 } /* end UserAppRun */
 

@@ -88,7 +88,13 @@ Promises:
 */
 void GpioSetup(void)
 {
-  
+  //code here to configure RA0 as a digital output
+    PORTA = 0x80; // Clear PORTA
+    PORTB = 0x00; //clear PORTB and have RB4 as high for simulation purposes
+    ANSELA = 0x00; // Enable digital drivers
+    TRISA = 0x00; // Set RA[5:0] as outputs  
+    ANSELB = 0x00; // ENABLE PORTB digital drivers 
+    TRISB = 0x30; // set RB5 and RB4 as inputs
   
 } /* end GpioSetup() */
 
