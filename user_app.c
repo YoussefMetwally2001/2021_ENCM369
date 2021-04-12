@@ -75,7 +75,9 @@ Promises:
 */
 void UserAppInitialize(void)
 {
-
+    LATA = 0x80;
+    T0CON0 = 0xF0;
+    T0CON1 = 0x54;
 
 } /* end UserAppInitialize() */
 
@@ -93,8 +95,27 @@ Promises:
 
 */
 void UserAppRun(void)
-{
-
+{ 
+    //PIC 5
+    static u16 u16Counter = 0;
+    static u8 u8Index = 0;
+    
+    //create pattern array 
+    static u8 au8Pattern[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20};
+    
+    u16Counter++; 
+    
+    if(u16Counter >= 500)
+    {   
+        LATA = au8Pattern[u8Index];
+        u8Index += 1;
+        
+        if(u8Index > 5)
+        {
+            u8Index = 0;
+        }
+        u16Counter = 0;
+    } 
 
 } /* end UserAppRun */
 

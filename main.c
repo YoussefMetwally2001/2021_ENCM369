@@ -60,6 +60,9 @@ void main(void)
     /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
+	//1 ms delay using timer 
+    TimeXus(1000);
+    while( TMR0IF == 0); 
     HEARTBEAT_ON();
     
   } /* end while(1) main super loop */

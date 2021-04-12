@@ -88,7 +88,10 @@ Promises:
 */
 void GpioSetup(void)
 {
-  
+  //code here to configure RA0 as a digital output
+    PORTA = 0x80; // Clear PORTA
+    ANSELA = 0x00; // Enable digital drivers
+    TRISA = 0x00; // Set RA[5:0] as outputs  
   
 } /* end GpioSetup() */
 
